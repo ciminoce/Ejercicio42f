@@ -1,23 +1,31 @@
-﻿Console.WriteLine("Conversión de temperatura en Grados Celsius");
-Console.Write("Ingrese el valor de la temperatura:");
-var celsius = double.Parse(Console.ReadLine());
-Console.WriteLine("1-Fahrenheit");
-Console.WriteLine("2-Reaumur");
-Console.WriteLine("3-Kelvin");
-Console.WriteLine("4-Rankine");
-Console.Write("Ingrese una opción:");
-var opcion = int.Parse(Console.ReadLine());
-if (ValidarOpcion(opcion))
+﻿try
 {
-    var conversion = ConvertirTemperatura(celsius, opcion);
-    var escalaConvertida = EscalaConvertida(opcion);
-    Console.WriteLine($"{celsius} equivale a {conversion} grados {escalaConvertida}");
-}
-else
-{
-    Console.WriteLine("Conversión seleccionada fuera del rango permitido");
-}
+    Console.WriteLine("Conversión de temperatura en Grados Celsius");
+    Console.Write("Ingrese el valor de la temperatura:");
+    var celsius = double.Parse(Console.ReadLine());
+    Console.WriteLine("1-Fahrenheit");
+    Console.WriteLine("2-Reaumur");
+    Console.WriteLine("3-Kelvin");
+    Console.WriteLine("4-Rankine");
+    Console.Write("Ingrese una opción:");
+    var opcion = int.Parse(Console.ReadLine());
+    if (ValidarOpcion(opcion))
+    {
+        var conversion = ConvertirTemperatura(celsius, opcion);
+        var escalaConvertida = EscalaConvertida(opcion);
+        Console.WriteLine($"{celsius} equivale a {conversion} grados {escalaConvertida}");
+    }
+    else
+    {
+        Console.WriteLine("Conversión seleccionada fuera del rango permitido");
+    }
 
+}
+catch (Exception)
+{
+
+    Console.WriteLine("Temperatura u opción mal ingresada");
+}
 string EscalaConvertida(int opcion)
 {
     switch (opcion)
